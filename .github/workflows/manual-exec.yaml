@@ -1,0 +1,25 @@
+# CI de Nível 01 - Disparo manual a partir de 1 clique
+
+name: Execução Manual
+
+on:
+  workflow_dispatch:  
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fazer checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar testes
+        run: npm test
