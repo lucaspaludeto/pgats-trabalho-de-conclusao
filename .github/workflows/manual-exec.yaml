@@ -18,8 +18,9 @@ jobs:
         with:
           node-version: 22.x
 
-      - name: Instalar dependências
-        run: npm ci
+    #instalacao do Mocha
+      - name: Instalando Mocha
+        run: npm install -D mocha
 
       - name: Rodar testes de unidade com Mocha
-        run: npx mocha --reporter spec
+        run: npx mocha trabalho-final.js
