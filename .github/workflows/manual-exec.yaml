@@ -18,9 +18,18 @@ jobs:
         with:
           node-version: 22.x
 
-    #instalacao do Mocha
-      - name: Instalando Mocha
-        run: npm install -D mocha
+      - name: Instalar dependências do Mocha
+        run: |
+         npm install -D mocha
+         npm install -D mochawesome
 
-      - name: Rodar testes de unidade com Mocha
-        run: npx mocha trabalho-final.js
+      - name: Rodar testes com mochawesome
+        run: npx mocha trabalho-final.js --reporter mochawesome
+
+      - name: Salvar relatório como artefato
+        uses: actions/ipload-artifact@v4
+        with:
+         name: mochawesome-reporter
+         path: mochawesome-report/
+
+    
