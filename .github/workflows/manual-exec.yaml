@@ -27,7 +27,7 @@ jobs:
         run: npx mocha trabalho-final.js --reporter mochawesome
 
       - name: Salvar relatório como artefato
-        uses: actions/ipload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
          name: mochawesome-reporter
          path: mochawesome-report/
